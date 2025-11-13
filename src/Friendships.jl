@@ -1,5 +1,8 @@
 module Friendships
+include("fonction.jl")
+export Person, Population, relationships!, poids0, poidsM, influence!, store, similarity
+export simulate
 
-# Write your package code here.
 
 end
+
