@@ -1,4 +1,6 @@
 using Random
+using LinearAlgebra
+using Statistics
 
 mutable struct Person
     id::Int 
@@ -25,7 +27,7 @@ function relationships(people::Population,prob::Float64=0.5)
     end
 end
 
-# poids0
+# poids0 
 function poids0(people::Population)
     poids = Dict{Tuple{Int,Int}, Tuple{Float64, Float64}}()  # (intensity,delta)
 
@@ -150,7 +152,7 @@ function simulate(people::Population;
         # 3️⃣ Influence émotionnelle entre amis forts
         for ((i,j), (intensite,_)) in poids
             if intensite > seuil
-                influence!(people[i], people[j], poids; alpha=α, beta=β, gamma=γ)
+                influence(people[i], people[j], poids; alpha=α, beta=β, gamma=γ)
             end
         end
     end
