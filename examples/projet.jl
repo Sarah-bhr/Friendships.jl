@@ -1,4 +1,3 @@
-
 # Créer population
 people = Population(10)
 println("Population créée !")
